@@ -122,9 +122,13 @@ govern_preds %>% ggplot(aes(x = Distance, y = prob)) +
   geom_point(size = 3) +
   geom_errorbar(aes(ymin = LB, ymax = UB), width = 0.5) +
   scale_x_continuous(breaks = 1:10) +
+  scale_y_continuous(limits = c(0, 1)) +  # Set y-axis to range from 0 to 1 --....... AZ
+
   xlab('Distance') +
   ylab('p(y = singular)') +
-  theme_minimal()
+  theme_minimal()+
+  theme(legend.text = element_text(size = 30),  # Increase legend text size -- couldn't make it work....... AZ
+  legend.title = element_text(size = 30))  # Increase legend title size  -- couldn't make it work....... AZ
 
 
 # calculating predicted probabilities for singular pronominal for police
@@ -155,3 +159,4 @@ police_preds %>% ggplot(aes(x = Distance, y = prob)) +
   ylab('p(y = singular)') +
   theme_minimal()
 citation("lme4")
+
